@@ -1,3 +1,6 @@
+# Alex (Sasha) Spurlock
+# alexanderspurlock@gmail.com
+
 import random
 
 random_number = random.randint(0,101)
