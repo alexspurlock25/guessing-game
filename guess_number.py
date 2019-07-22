@@ -32,7 +32,7 @@ def wrong_number(user_number):
 
         elif abs(user_number - random_number) > 10 and abs(user_number - random_number) <= 20:
 
-            user_number = int( input(f"{user_number} is WARM: ") )
+            user_number = int( input(f"{user_number} is REALLY WARM: ") )
             guess_list.append(user_number)
 
         elif abs(user_number - random_number) > 20 and abs(user_number - random_number) <= 30:
@@ -60,6 +60,9 @@ def right_number(user_number):
         question = input("Would you like to play again? ").lower()
 
         if question == 'yes' or question == 'yeah':
+
+            random_number = random.randint(0, 101)
+            print(random_number)
 
             user_number = int( input("Okay, let's play again. Enter a number between 0 and 100: ") )
             guess_list.append(user_number)
