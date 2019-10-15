@@ -4,7 +4,7 @@
 import random
 
 random_number = random.randint(0,101)
-print(f"New number random is {random_number}") ## for testing
+print(f"New random number is {random_number}") ## for testing
 
 guess_list = []
 all_guesses = []
