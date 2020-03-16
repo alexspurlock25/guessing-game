@@ -3,20 +3,20 @@
 
 import random
 
-random_number = random.randint(0,101)
-print(f"New random number is {random_number}") ## for testing
+# variable to hold random number. 0 to 100
+random_number = random.randint(0, 101)
+print(f"New random number is {random_number}")  ## for testing
 
 guess_list = []
 all_guesses = []
 
-user_number = int( input("Guess a number between 0 and 100: ") )
+user_number = int(input("Guess a number between 0 and 100: "))
 guess_list.append(user_number)
 all_guesses.append(user_number)
 
 
-def wrong_number(user_number):
-
-    '''
+def wrong_number(num):
+    """
 
     This method has a while loop that makes the user keep guessing.
     When the user finally guesses right, the loop becomes false,
@@ -24,70 +24,70 @@ def wrong_number(user_number):
 
     This method is 'skipped' if the user guesses right on his/her first try.
 
-    '''
+    """
 
-    while random_number != user_number:
+    while random_number != num:
 
-        if user_number < 0 or user_number > 100:
+        if num < 0 or num > 100:
 
-            if user_number < 0:
-                user_number = int( input(f"{user_number} is below specified range. Try again: ") )
-                guess_list.append(user_number)
-                all_guesses.append(user_number)
+            if num < 0:
+                num = int(input(f"{num} is below specified range. Try again: "))
+                guess_list.append(num)
+                all_guesses.append(num)
 
             else:
-                user_number = int( input(f"{user_number} is above specified range. Try again: ") )
-                guess_list.append(user_number)
-                all_guesses.append(user_number)
+                num = int(input(f"{num} is above specified range. Try again: "))
+                guess_list.append(num)
+                all_guesses.append(num)
 
-        elif abs(user_number - random_number) > 0 and abs(user_number - random_number) <= 5:
+        elif abs(num - random_number) > 0 and abs(num - random_number) <= 5:
 
-            user_number = int( input(f"{user_number} IS BURNING: ") )
-            guess_list.append(user_number)
-            all_guesses.append(user_number)
+            num = int(input(f"{num} IS BURNING: "))
+            guess_list.append(num)
+            all_guesses.append(num)
 
-        elif abs(user_number - random_number) > 5 and abs(user_number - random_number) <= 10:
+        elif abs(num - random_number) > 5 and abs(num - random_number) <= 10:
 
-            user_number = int( input(f"{user_number} is HOT: ") )
-            guess_list.append(user_number)
-            all_guesses.append(user_number)
+            num = int(input(f"{num} is HOT: "))
+            guess_list.append(num)
+            all_guesses.append(num)
 
-        elif abs(user_number - random_number) > 10 and abs(user_number - random_number) <= 20:
+        elif abs(num - random_number) > 10 and abs(num - random_number) <= 20:
 
-            user_number = int( input(f"{user_number} is REALLY WARM: ") )
-            guess_list.append(user_number)
-            all_guesses.append(user_number)
+            num = int(input(f"{num} is REALLY WARM: "))
+            guess_list.append(num)
+            all_guesses.append(num)
 
-        elif abs(user_number - random_number) > 20 and abs(user_number - random_number) <= 30:
+        elif abs(num - random_number) > 20 and abs(num - random_number) <= 30:
 
-            user_number = int( input(f"{user_number} is WARMER: ") )
-            guess_list.append(user_number)
-            all_guesses.append(user_number)
+            num = int(input(f"{num} is WARMER: "))
+            guess_list.append(num)
+            all_guesses.append(num)
 
-        elif user_number > random_number:
+        elif num > random_number:
 
-            user_number = int( input(f"{user_number} is too high. Try Again: ") )
-            guess_list.append(user_number)
-            all_guesses.append(user_number)
+            num = int(input(f"{num} is too high. Try Again: "))
+            guess_list.append(num)
+            all_guesses.append(num)
 
-        elif user_number < random_number:
+        elif num < random_number:
 
-            user_number = int( input(f"{user_number} is too low. Try Again: ") )
-            guess_list.append(user_number)
-            all_guesses.append(user_number)
+            num = int(input(f"{num} is too low. Try Again: "))
+            guess_list.append(num)
+            all_guesses.append(num)
 
-    return right_number(user_number)
+    return right_number(num)
 
-def right_number(right_user_number):
 
-    '''
+def right_number(num):
+    """
 
     This method is for situations in which the user's numbers are correct.
     Whether it's his/her first guess or after guessing several times.
 
-    '''
+    """
 
-    print(f"{right_user_number} is right! Good Job!")
+    print(f"{num} is right! Good Job!")
 
     question = input("Would you like to play again? ").lower()
 
@@ -95,9 +95,9 @@ def right_number(right_user_number):
         guess_list.clear()
 
         new_random_number = random.randint(0, 101)
-        print(f"New random number is {new_random_number}") # this line is only for testing
+        print(f"New random number is {new_random_number}")  # this line is only for testing
 
-        new_user_number = int( input("Okay, let's play again. Enter a number between 0 and 100: ") )
+        new_user_number = int(input("Okay, let's play again. Enter a number between 0 and 100: "))
         guess_list.append(new_user_number)
         all_guesses.append(new_user_number)
 
@@ -112,18 +112,17 @@ def right_number(right_user_number):
         return print("Have a good day! These are your results!\n")
 
 
-def first_time_guess(first_try_number):
-
+def first_time_guess(num):
     question = input("WOW!! You guessed on your first try! NICE! Would you like to play again? ").lower()
 
     if question == "yes" or question == "yeah":
         guess_list.clear()
 
-        new_random_number = random.randint(0,101)
+        new_random_number = random.randint(0, 101)
         print(f"New random number is {new_random_number}")  # for testing
 
-        new_user_number = int( input("Okay, let's see if you can get it on your first try again!!\n"
-                                     "Enter a number here: ") )
+        new_user_number = int(input("Okay, let's see if you can get it on your first try again!!\n"
+                                    "Enter a number here: "))
         guess_list.append(new_user_number)
         all_guesses.append(new_user_number)
 
