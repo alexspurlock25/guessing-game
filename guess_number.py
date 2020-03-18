@@ -10,7 +10,17 @@ print(f"New random number is {random_number}")  ## for testing
 guess_list = []
 all_guesses = []
 
-user_number = int(input("Guess a number between 0 and 100: "))
+isValidInput = False
+user_number = 0
+while not isValidInput:
+    try:
+        #The number we are trying to guess
+        user_number = int(input("Guess a number between 0 and 100: "))
+        isValidInput = True
+    except ValueError: 
+        print("{} is not a valid number.  Please enter another guess".format(user_number))
+
+
 guess_list.append(user_number)
 all_guesses.append(user_number)
 
@@ -90,8 +100,8 @@ def right_number(num):
     print(f"{num} is right! Good Job!")
 
     question = input("Would you like to play again? ").lower()
-
-    if question == 'yes' or question == 'yeah':
+    
+    if question in ["y","yes","yeah","yep"]:
         guess_list.clear()
 
         new_random_number = random.randint(0, 101)
@@ -115,7 +125,7 @@ def right_number(num):
 def first_time_guess(num):
     question = input("WOW!! You guessed on your first try! NICE! Would you like to play again? ").lower()
 
-    if question == "yes" or question == "yeah":
+    if question in ["y","yes","yeah","yep"]:
         guess_list.clear()
 
         new_random_number = random.randint(0, 101)
