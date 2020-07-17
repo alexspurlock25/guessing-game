@@ -1,4 +1,4 @@
-# Alex (Sasha) Spurlock
+# Alexander Spurlock
 # alexanderspurlock@gmail.com
 
 import random
