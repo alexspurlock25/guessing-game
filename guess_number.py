@@ -1,8 +1,12 @@
 # Alexander Spurlock
-
 import random
 
+random_num = random.randint(0, 101)
+
 def play(rand_num:int):
+    # for testing - comment out when needed
+    print(f"New random number is {rand_num}")
+
     try:
         user_num = int(input("Guess a number between 0 and 100: "))
         check_guess(user_num, rand_num)
@@ -13,7 +17,9 @@ def play(rand_num:int):
 
 
 def check_guess(guess, rand_num):
-    while guess != rand_num:
+    is_right = False
+
+    while is_right == False:
         if guess < 0 or guess > 100:
             guess = int(input(f"{guess} is out of specified range. Try again: "))
 
@@ -39,19 +45,19 @@ def check_guess(guess, rand_num):
             guess = int(input(f"{guess} is FREEZING: "))
 
         if guess == rand_num:
+            is_right = True
+
             response_yes = ["y", "yes", "yeah", "yep"]
             print("You guessed the right number.")
             question = input("Would you like to play again? (y, yes, yeah, yep): ").lower()
 
             if question in response_yes:
-                play(random.randint(0, 101))
+                random_num = random.randint(0, 101)
+                play(random_num)
             else:
                 print("Goodbye.")
                 exit()
 
 
 if __name__ == "__main__":
-    random_num = random.randint(0, 101)
-    print(f"(FOR TESTING. COMMENT THIS OUT.) New random number is {random_num}")  # for testing
-    
     play(random_num)
